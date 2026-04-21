@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+
+// Component Imports
+import { Layout } from '../components/Layout';
+import { TopNavBar } from '../components/TopNavBar';
+import { Footer } from '../components/Footer';
+import { HeroSection } from '../components/HeroSection';
+import { ConceptSplitSection } from '../components/ConceptSplitSection';
+import { HowItWorksSection } from '../components/HowItWorksSection';
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>SENSORY | Ethereal Curation for the Modern Soul</title>
+		
+		<!-- Google Fonts as requested in the HTML snippet -->
+		<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!-- React components need the client directive to hydrate if they have interactivity. -->
+		<!-- We will use client:load for the layout since it might have interactive elements (nav etc.) -->
+		<div class="bg-background text-on-surface antialiased fluid-gradient-bg min-h-screen flex flex-col">
+			<TopNavBar client:load />
+			<main class="flex-grow pt-24">
+				<HeroSection />
+				<ConceptSplitSection client:load />
+				<HowItWorksSection />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>

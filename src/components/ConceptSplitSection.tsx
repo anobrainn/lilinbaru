@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const spotifySlides = [
   '/slides/slide2.jpg',
@@ -9,20 +9,6 @@ const spotifySlides = [
 ];
 
 export const ConceptSplitSection: React.FC = () => {
-  // Tambahkan state untuk melacak index slide saat ini
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Fungsi untuk tombol Next
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % spotifySlides.length);
-  };
-
-  // Fungsi untuk tombol Previous
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? spotifySlides.length - 1 : prevIndex - 1
-    );
-  };
 
   return (
     <section className="py-32 px-6 lg:px-12 bg-surface-container-lowest relative z-10">
@@ -58,8 +44,7 @@ export const ConceptSplitSection: React.FC = () => {
                 id="spotify-slide-image"
                 alt="Smartphone scanning"
                 className="w-full h-auto object-contain transition-opacity duration-1000 shadow-[0_0_40px_rgba(255,255,255,0.1)]"
-                // Gunakan state currentIndex di sini
-                src={spotifySlides[currentIndex]}
+                src={spotifySlides[0]}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent pointer-events-none"></div>
 
@@ -71,8 +56,6 @@ export const ConceptSplitSection: React.FC = () => {
               <div className="absolute bottom-6 right-6 flex items-center gap-2 z-10">
                 <button
                   id="btn-prev-slide"
-                  // Tambahkan onClick handler
-                  onClick={handlePrev}
                   className="w-10 h-10 rounded-full bg-surface-container-highest/80 hover:bg-secondary hover:text-on-secondary transition-colors flex items-center justify-center text-primary backdrop-blur-md border border-outline-variant/30"
                   aria-label="Previous Slide"
                 >
@@ -80,8 +63,6 @@ export const ConceptSplitSection: React.FC = () => {
                 </button>
                 <button
                   id="btn-next-slide"
-                  // Tambahkan onClick handler
-                  onClick={handleNext}
                   className="w-10 h-10 rounded-full bg-surface-container-highest/80 hover:bg-secondary hover:text-on-secondary transition-colors flex items-center justify-center text-primary backdrop-blur-md border border-outline-variant/30"
                   aria-label="Next Slide"
                 >
@@ -92,6 +73,48 @@ export const ConceptSplitSection: React.FC = () => {
           </div>
         </div>
       </div>
+      <script dangerouslySetInnerHTML={{ __html: `
+        (function() {
+          const initSlider = () => {
+            const slides = ${JSON.stringify(spotifySlides)};
+            let currentIndex = 0;
+            const image = document.getElementById('spotify-slide-image');
+            const btnPrev = document.getElementById('btn-prev-slide');
+            const btnNext = document.getElementById('btn-next-slide');
+
+            if (!image || !btnPrev || !btnNext) return;
+
+            const newBtnPrev = btnPrev.cloneNode(true);
+            const newBtnNext = btnNext.cloneNode(true);
+            btnPrev.parentNode.replaceChild(newBtnPrev, btnPrev);
+            btnNext.parentNode.replaceChild(newBtnNext, btnNext);
+
+            newBtnPrev.addEventListener('click', () => {
+              currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+              image.style.opacity = '0';
+              setTimeout(() => {
+                image.src = slides[currentIndex];
+                image.style.opacity = '1';
+              }, 300);
+            });
+
+            newBtnNext.addEventListener('click', () => {
+              currentIndex = (currentIndex + 1) % slides.length;
+              image.style.opacity = '0';
+              setTimeout(() => {
+                image.src = slides[currentIndex];
+                image.style.opacity = '1';
+              }, 300);
+            });
+          };
+          
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSlider);
+          } else {
+            setTimeout(initSlider, 100);
+          }
+        })();
+      ` }} />
     </section>
   );
 };

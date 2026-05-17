@@ -18,9 +18,9 @@ export const CollectionsSection: React.FC = () => {
           <article className="bg-surface-container-low rounded-xl p-8 flex flex-col gap-6 group hover:bg-surface-bright transition-all duration-500 relative overflow-hidden ghost-border">
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-all duration-700"></div>
             <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden glass-panel flex items-center justify-center glow-shadow mb-4">
-              <img 
-                alt="Cloud Nine Candle" 
-                className="object-cover w-full h-full mix-blend-luminosity opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
+              <img
+                alt="Cloud Nine Candle"
+                className="object-cover w-full h-full mix-blend-luminosity opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTmlI-Odch5Z6FWR_XrCQ_9xPHKmShyO_FS3rPd8jhMBs5xhuGYBjdN49AqlkgUlJ6nLzkIjJU84uhLSB-XVkP2aHOTpMqm-VmudmBqzpLJpKA-U_8tmsiiM31txCjnnRdwRzXaesc5l9W11hZ05axWoIjILtp4lXUBv-dv-hZwYq85Y6NViUsOuY4WrSwM6EJqWRMvVcevtdo5PdPjrUXr1BwFWtEmcaW64OojglJJ5ZzpEYeRiCVFHC8YyPisksY33pzp0zYuVBM"
               />
               {/* Floating Action overlay */}
@@ -41,7 +41,7 @@ export const CollectionsSection: React.FC = () => {
                 <p className="font-body text-sm text-on-surface-variant">Eucalyptus, Mint, Rainwater</p>
               </div>
               <div className="text-right">
-                <span className="font-headline text-xl text-primary block mb-1">$48</span>
+                <span className="font-headline text-xl text-primary block mb-1">Rp. 35.000</span>
                 <span className="text-[10px] font-epilogue tracking-widest text-secondary uppercase bg-secondary/10 px-2 py-1 rounded">Calm</span>
               </div>
             </div>
@@ -53,10 +53,9 @@ export const CollectionsSection: React.FC = () => {
             <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden glass-panel flex items-center justify-center glow-shadow mb-4">
               <img 
                 alt="Feeling Blue Candle" 
-                className="object-cover w-full h-full mix-blend-luminosity opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTmlI-Odch5Z6FWR_XrCQ_9xPHKmShyO_FS3rPd8jhMBs5xhuGYBjdN49AqlkgUlJ6nLzkIjJU84uhLSB-XVkP2aHOTpMqm-VmudmBqzpLJpKA-U_8tmsiiM31txCjnnRdwRzXaesc5l9W11hZ05axWoIjILtp4lXUBv-dv-hZwYq85Y6NViUsOuY4WrSwM6EJqWRMvVcevtdo5PdPjrUXr1BwFWtEmcaW64OojglJJ5ZzpEYeRiCVFHC8YyPisksY33pzp0zYuVBM"
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                src="/assets/feelingblue.png"
               />
-              <div className="absolute inset-0 bg-blue-500/20 mix-blend-overlay pointer-events-none"></div>
               {/* Floating Action overlay */}
               <div className="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
                 <button className="bg-gradient-to-r from-secondary to-secondary-dim text-on-secondary rounded-full w-16 h-16 flex items-center justify-center shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
@@ -75,7 +74,7 @@ export const CollectionsSection: React.FC = () => {
                 <p className="font-body text-sm text-on-surface-variant">Ocean Breeze, Sea Salt, Driftwood</p>
               </div>
               <div className="text-right">
-                <span className="font-headline text-xl text-primary block mb-1">$48</span>
+                <span className="font-headline text-xl text-primary block mb-1">Rp. 35.000</span>
                 <span className="text-[10px] font-epilogue tracking-widest text-secondary uppercase bg-secondary/10 px-2 py-1 rounded">Relax</span>
               </div>
             </div>
